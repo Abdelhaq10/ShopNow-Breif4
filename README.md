@@ -3,4 +3,4 @@ Figma link : https://www.figma.com/file/jyudfWeqPcXdiPqZ4qXlB9/Untitled?node-id=
 
 url : https://abdelhaq10.github.io/ShopNow-Breif4/
 
-Trillo : https://trello.com/b/COpHqaE5/shopnow-planning
+Trello : https://trello.com/b/COpHqaE5/shopnow-planning
