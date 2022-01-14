@@ -2,7 +2,7 @@
 <div id="Addpopup" class="box">
             <div class="popup-content animate-top">
                 <div class="popup-header">
-                    <h5 class="popup-title">Add List Product</h5>
+                    <h5 class="popup-title">Add Product</h5>
                     <button type="button" class="close">
                         <img src="./images/icons8-close-30.png" alt="" srcset="">
                     </button>

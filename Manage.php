@@ -23,7 +23,7 @@
             <span class="gear"><strong>Quantite : </strong>5</span>
             <span class="price"><strong>Categorie : </strong>Categorie1</span>
             <div class="actions">
-                <button id="updatebtn" class="btn">edit</button>
+                <button id="updatebtn" class="btn" onclick="update()">edit</button>
                 <button id="deletebtn" class="btn">del</button>
              </div>
         </div>
@@ -34,7 +34,7 @@
          <span class="gear"><strong>Quantite : </strong>10</span>
          <span class="price"><strong>Categorie : </strong>Categorie2</span>
          <div class="actions">
-            <button id="updatebtn" class="btn">edit</button>
+            <button id="updatebtn" class="btn" onclick="update()">edit</button>
             <button id="deletebtn" class="btn">del</button>
          </div>
      </div>
@@ -45,7 +45,7 @@
          <span class="gear"><strong>Quantite : </strong>15</span>
          <span class="price"><strong>Categorie : </strong>Categorie3</span>
          <div class="actions">
-            <button id="updatebtn" class="btn">edit</button>
+            <button id="updatebtn" class="btn" onclick="update()">edit</button>
             <button id="deletebtn" class="btn">del</button>
          </div>
      </div>
@@ -56,7 +56,7 @@
          <span class="gear"><strong>Quantite : </strong>20</span>
          <span class="price"><strong>Categorie : </strong>Categorie4</span>
          <div class="actions">
-            <button id="updatebtn" class="btn">edit</button>
+            <button id="updatebtn" class="btn" onclick="update()">edit</button>
             <button id="deletebtn" class="btn">del</button>
          </div>
  
@@ -67,11 +67,9 @@
                                          include("AddProduct.php");
                                          include("UpdateProduct.php");
                                   ?>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
+                                    <!-- script js -->
+    <script src="./script.js"></script>
+    <!-- <script>
             document.querySelector('#file').addEventListener("change",function(event)
             {
                 var image=document.getElementById('upload');
@@ -117,6 +115,6 @@
             };
         };
     });
-        </script>
+        </script> -->
 </body>
 </html>

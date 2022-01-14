@@ -24,8 +24,8 @@
                         <input type="number" name="quantite" id="quantite" class="input" placeholder="Quantite">
                     </div>
                     <div class="block">
-                     <img id="upload" width="100" height="100">
-                        <input type="file" name="image" id="file" class="input" accept="image/*">
+                     <img id="uploadup" width="100" height="100">
+                        <input type="file" name="image" id="fileup" class="input" accept="image/*">
                     </div>
                 </div>
                 <div class="popup-footer">

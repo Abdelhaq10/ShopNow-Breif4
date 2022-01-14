@@ -30,18 +30,19 @@ background-color: rgba(0,0,0,0.4);
 }
 
 .popup-content {
-margin: 8% auto;
+margin: 5% auto;
 border: 1px solid #888;
-width: 475px;
+width: 455px;
 background-color: #fff;
 border: 1px solid rgba(0,0,0,.2);
 border-radius: .3rem;
 outline: 0;
 }
+
 .popup-header {
 display: flex;
 justify-content: space-between;
-padding: 1rem;
+padding: 20px;
 border-bottom: 2px solid black;
 border-top-left-radius: .3rem;
 border-top-right-radius: .3rem;
