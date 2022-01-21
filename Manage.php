@@ -6,8 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+ 
+     <script
+  src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
+    <?php
+        include("./connection.php");
+       
+        $data="SELECT p.*,c.Nomcat FROM product AS p INNER JOIN categorie AS c ON p.idCat=c.idCat";
+         $arrP=mysqli_query($connection,$data);
+           $list = array();
+    while($row =mysqli_fetch_assoc($arrP))
+    {
+        $lists[] = $row;
+    }
+     ?>
+
     <div class="container">
         <h2>List Of Products</h2>
         <div class="add">
@@ -15,53 +30,33 @@
         </div>
         
       
-        <div class="slider">
+              <div class="slider">
+              <?php foreach ($lists as $list) : ?>
          <div class="card">
-            <div class="pic"><img  class="pic1" src="./images/pexels-garvin-st-villier-3311574.jpg" alt="" srcset=""></div>
-            <span class="type"><strong>intitule : </strong>intitule1</span>
-            <span class="fuel"><strong>Price : </strong>120.00$</span>
-            <span class="gear"><strong>Quantite : </strong>5</span>
-            <span class="price"><strong>Categorie : </strong>Categorie1</span>
+                
+                
+                 <div id="pic" class="pic"><img class="pic1" src="./images/<?php echo $list['image'] ?>"></div>
+                 <span id="intitule" class="intitule"><?php echo $list['Nom'] ?></span>
+                 <div class="line">
+                 <span  class="qte"><strong>Quantite  </strong></span>
+                 <span class="cat"><strong>Categorie </strong></span>
+                 <span class="qteN" id="qte"><?php echo $list['Quantite'] ?></span>
+                 <span class="catT" id="cat"><?php echo $list['Nomcat'] ?></span>
+                 </div>
+                 <span class="prix" id="price"><?php echo $list['Price'] ?>DH</span>
             <div class="actions">
-                <button id="updatebtn" class="btn" onclick="update()">edit</button>
-                <button id="deletebtn" class="btn">del</button>
+                <button id="updatebtn"  name="edit" class="btn update" value=<?php echo $list['idP']; ?> >Edit</button>
+                <form action="Crud.php" method="post">
+                <input type="text" class="id" name="id" id="id" value=<?php echo $list['idP'] ?>>
+                <button id="deletebtn" name="del" class="btn">del</button>
+              </form>
              </div>
-        </div>
-        <div class="card">
-         <div class="pic"><img  class="pic1" src="./images/pexels-garvin-st-villier-3311574.jpg" alt="" srcset=""></div>
-         <span class="type"><strong>intitule : </strong>intitule2</span>
-         <span class="fuel"><strong>Price : </strong>100.00$</span>
-         <span class="gear"><strong>Quantite : </strong>10</span>
-         <span class="price"><strong>Categorie : </strong>Categorie2</span>
-         <div class="actions">
-            <button id="updatebtn" class="btn" onclick="update()">edit</button>
-            <button id="deletebtn" class="btn">del</button>
-         </div>
+       
      </div>
-     <div class="card">
-         <div class="pic"><img  class="pic1" src="./images/pexels-garvin-st-villier-3311574.jpg" alt="" srcset=""></div>
-         <span class="type"><strong>intitule : </strong>intitule3</span>
-         <span class="fuel"><strong>Price : </strong>130.00$</span>
-         <span class="gear"><strong>Quantite : </strong>15</span>
-         <span class="price"><strong>Categorie : </strong>Categorie3</span>
-         <div class="actions">
-            <button id="updatebtn" class="btn" onclick="update()">edit</button>
-            <button id="deletebtn" class="btn">del</button>
-         </div>
-     </div>
-     <div class="card">
-         <div class="pic"><img  class="pic1" src="./images/pexels-garvin-st-villier-3311574.jpg" alt="" srcset=""></div>
-         <span class="type"><strong>intitule : </strong>intitule4</span>
-         <span class="fuel"><strong>Price : </strong>150.00$</span>
-         <span class="gear"><strong>Quantite : </strong>20</span>
-         <span class="price"><strong>Categorie : </strong>Categorie4</span>
-         <div class="actions">
-            <button id="updatebtn" class="btn" onclick="update()">edit</button>
-            <button id="deletebtn" class="btn">del</button>
-         </div>
- 
-     </div>
-        </div>    
+ <?php endforeach; ?>
+        </div>  
+    
+      
                                  <!--    CRUD Product    -->
                                  <?php 
                                          include("AddProduct.php");
@@ -69,52 +64,18 @@
                                   ?>
                                     <!-- script js -->
     <script src="./script.js"></script>
-    <!-- <script>
-            document.querySelector('#file').addEventListener("change",function(event)
-            {
-                var image=document.getElementById('upload');
-                image.src=URL.createObjectURL(event.target.files[0]);
-            });
-        var Addpopup=document.getElementById("Addpopup");
-        var Updatepopup=document.getElementById("Updatepopup");
-        // var Deletepopup=document.getElementById("Deletepopup");
-
-        var Addbtn =document.getElementById("addbtn");  
-        var Updatebtn =document.getElementById("updatebtn");    
-        var Deletebtn =document.getElementById("deletebtn");
-        var closeUpdate = document.getElementById("close");
-        var closeAdd= document.querySelector(".close");
-        $(document).ready(function(){ 
-           Addbtn.addEventListener("click",function(){
-                Addpopup.style.display="block";
-            });
-           Updatebtn.addEventListener("click",function(){
-                Updatepopup.style.display="block";
-            });
-           Deletebtn.addEventListener("click",function(){
-                popup.style.display="block";
-            });
-            closeAdd.addEventListener("click",function(){
-                Addpopup.style.display = "none"; 
-            });
-            closeUpdate.addEventListener("click",function(){
-               Updatepopup.style.display = "none"; 
-            });
-        });
-        document.querySelector( document ).ready(function() {
-        resizeWindow();
-        document.querySelector( window ).resize(function() {
-            resizeWindow();
-        });
-
-        function resizeWindow(){
-            var bodyEl = document.querySelector( ".divTableBody .divTableRow:nth-child(2) div");
-            for (i = 1; i <= bodyEl.length; i++) {
-                var bodyCellElWidth = document.querySelector( ".divTable.divTableContent .divTableRow:nth-child(1) div:nth-child("+i+")").width();
-                document.querySelector(".divTableHeadHold div:nth-child("+i+")").width(bodyCellElWidth);
-            };
-        };
-    });
-        </script> -->
+     <script >
+  const products = JSON.parse('<?php echo json_encode($lists); ?>');
+  console.log(products);
+  const editBtns = document.querySelectorAll(".update");
+editBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const id = btn.value;
+    const product = products.find(p => p.idP === id);
+    // console.log(product);
+    openPopUp(product);
+  })})
+  
+  </script>
 </body>
 </html>
