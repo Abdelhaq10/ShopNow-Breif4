@@ -6,76 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
- 
-     <script
-  src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
+
 <body>
     <?php
         include("./connection.php");
        
-        $data="SELECT p.*,c.Nomcat FROM product AS p INNER JOIN categorie AS c ON p.idCat=c.idCat";
-         $arrP=mysqli_query($connection,$data);
-           $list = array();
-    while($row =mysqli_fetch_assoc($arrP))
-    {
-        $lists[] = $row;
-    }
+        session_start();
+   
+        $user = $_SESSION['admin'];
+        
+        $queryses = mysqli_query($connection,"select username from admin where username = '$user' ");
+        
+        $rows = mysqli_fetch_assoc($queryses);
+        
+        $session = $rows['username'];
+      
+        if(!isset($_SESSION['admin'])){
+           header("location:login.php");
+           die();
+        }
+
      ?>
 
-    <div class="container">
-        <h2>List Of Products</h2>
+
+    <header>
+      <a href="#" class="logo">Shop<span>Now</span></a>
+      <div class="menuToggle" onclick="toggleMenu()"></div>
+      <ul class="navigation">
+        <li><a href="index.html#banner" onclick="toggleMenu()">Home</a></li>
+        <li id="listbreak">|</li>
+        <li><a href="./logout.php" onclick="toggleMenu()">LOG OUT</a></li>
+      </ul>
+    </header>
+
+  <section class="cards" id="cards">
+      <div class="dimlight"></div>
+      <h2>List Of Products</h2>
         <div class="add">
             <button id="addbtn" class="addbtn">Add Product</button>
         </div>
-        
-      
-              <div class="slider">
-              <?php foreach ($lists as $list) : ?>
-         <div class="card">
-                
-                
-                 <div id="pic" class="pic"><img class="pic1" src="./images/<?php echo $list['image'] ?>"></div>
-                 <span id="intitule" class="intitule"><?php echo $list['Nom'] ?></span>
-                 <div class="line">
-                 <span  class="qte"><strong>Quantite  </strong></span>
-                 <span class="cat"><strong>Categorie </strong></span>
-                 <span class="qteN" id="qte"><?php echo $list['Quantite'] ?></span>
-                 <span class="catT" id="cat"><?php echo $list['Nomcat'] ?></span>
-                 </div>
-                 <span class="prix" id="price"><?php echo $list['Price'] ?>DH</span>
-            <div class="actions">
-                <button id="updatebtn"  name="edit" class="btn update" value=<?php echo $list['idP']; ?> >Edit</button>
-                <form action="Crud.php" method="post">
-                <input type="text" class="id" name="id" id="id" value=<?php echo $list['idP'] ?>>
-                <button id="deletebtn" name="del" class="btn">del</button>
-              </form>
-             </div>
-       
-     </div>
- <?php endforeach; ?>
-        </div>  
     
-      
-                                 <!--    CRUD Product    -->
-                                 <?php 
-                                         include("AddProduct.php");
-                                         include("UpdateProduct.php");
-                                  ?>
-                                    <!-- script js -->
-    <script src="./script.js"></script>
-     <script >
-  const products = JSON.parse('<?php echo json_encode($lists); ?>');
-  console.log(products);
-  const editBtns = document.querySelectorAll(".update");
-editBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const id = btn.value;
-    const product = products.find(p => p.idP === id);
-    // console.log(product);
-    openPopUp(product);
-  })})
+             <?php   
+                include("./Tablets.php")   ;
+                include("./Tv.php");
+                include("./Gaming.php");
+                include("./Gadget.php");
+                include("./Drones.php");
+                include("./Phones.php");
+             ?>
+   </section>
+    
   
-  </script>
-</body>
+<!-- ***********CRUD Product***********  -->
+    <?php 
+      include("AddProduct.php");
+      include("UpdateProduct.php");
+    ?>
+
+<!-- ***********Script JS*********** -->
+    <script src="./script.js"></script>
+
+    <script>
+      window.addEventListener("scroll", function()
+      {
+        const header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY>0);
+      })
+
+      function toggleMenu()
+      {
+          const menuToggle = document.querySelector(".menuToggle");
+          const navigation = document.querySelector(".navigation");
+          menuToggle.classList.toggle("active");
+          navigation.classList.toggle("active");
+      }
+    </script>
+  </body>
 </html>

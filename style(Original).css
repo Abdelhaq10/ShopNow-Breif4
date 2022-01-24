@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Gothic+A1:wght@300&family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Merriweather+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap');
+
+
+header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+header.sticky
+{
+    background: #fff;
+    padding: 10px 100px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+header .logo
+{
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+header.sticky .logo
+{
+    color: #111;
+}
+
+header .logo span
+{
+    color: #ff114d
+}
+
+header .navigation
+{
+    position: relative;
+    display: flex;
+}
+
+header .navigation li
+{
+    list-style: none;
+    margin-left: 30px;
+}
+
+header .navigation li a 
+{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+}
+
+header.sticky .navigation li a
+{
+    color: #111;
+}
+
+header .navigation li a:hover
+{
+    color: #ff114d;
+}
+
+#listbreak
+{
+    color:rgb(0, 0, 0);
+}
+
+header.sticky #listbreak
+{
+    color:rgb(0, 0, 0);
+}
+
+.cards
+{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: url(images/bg4.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.cards .dimlight
+{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.container{
+padding: 15px;
+display: flex;
+justify-content: center;
+justify-items: center;
+align-items: center;
+flex-direction: column;
+gap: 20px;
+position: relative;
+}
+.animate-top{
+position:relative;
+animation:animatetop 0.4s
+}
+@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
+
+.box {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+margin: 5% auto;
+border: 1px solid #888;
+width: 455px;
+background-color: #fff;
+border: 1px solid rgba(0,0,0,.2);
+border-radius: .3rem;
+outline: 0;
+}
+
+.popup-header {
+display: flex;
+justify-content: space-between;
+padding: 20px;
+border-bottom: 2px solid black;
+border-top-left-radius: .3rem;
+border-top-right-radius: .3rem;
+}
+
+.popup-title {
+    display: block;
+font-size: 1.25rem;
+color: black;
+margin: 0 ;
+font-weight: bold;
+font-family: 'Play', serif;
+}
+button.close {
+padding: 0;
+border: 0;
+background-color: white;
+}
+.popup-header .close {
+padding: 7px;
+margin: -1rem -1rem -1rem auto;
+}
+.close:not(:disabled):not(.disabled) {
+cursor: pointer;
+}
+
+.popup-body {
+padding: 20px;
+}
+.popup-footer {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+padding: 1rem;
+border-top: 1px solid #e9ecef;
+}
+.btn , .btnEdit , .btnAdd,.addbtn {
+font-weight: bold;
+text-align: center;
+white-space: nowrap;
+background-color: cyan;
+border: 1px solid transparent;
+padding: 5px 25px 5px 25px;
+font-size: 1rem;
+line-height: 1.5;
+cursor: pointer;
+display: block;
+margin: 0 auto;
+}
+.btnEdit , .btnAdd 
+{
+    border-radius: 30px;
+}
+.add{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-end;
+}
+.addbtn{
+    background-color: rgba(179, 175, 175, 0.883);
+}
+.btn:focus, .btn:hover {
+text-decoration: none;
+}
+h2{
+    text-align: center;
+}
+.block {
+margin-bottom: 15px;
+}
+label {
+display: inline-block;
+max-width: 100%;
+margin-bottom: 5px;
+font-weight: 700;
+}
+.input {
+display: block;
+width: 85%;
+padding: 8px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: black;
+background-color: white;
+border: 1px solid black;
+border-radius: 4px;
+box-shadow: inset 0 1px 1px #00000013;
+}
+.slider{
+    display: grid;
+    grid-template-columns: repeat(3,360px);
+    row-gap: 35px;
+    column-gap: 35px;
+}
+
+.card{
+    display: flex;
+    border: grey solid;
+    /* width: 300px; */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap:40px;
+    padding: 15px;
+    color: black;
+}
+.card .desc{
+    font-family: 'Merriweather Sans', sans-serif;
+}
+.line{
+    width:  100%;
+    display: grid;
+    column-gap: 60px;
+       row-gap: 8px;
+    grid-template-columns:  repeat( 2, 1fr);
+    align-items: center;
+    justify-content: space-evenly;
+}
+ .dimlight
+{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+ 
+}
+.prix , .qteN{
+    font-family: 'Bree Serif', serif;
+    font-size:  20px;
+}
+.catT{
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.qte,.cat{
+    font-family: 'Carrois Gothic SC', sans-serif;
+}
+.qte,.cat{
+    padding:    3px;
+    border-bottom:  4px solid black ;
+}
+.id{
+    display: none;
+}
+.intitule{
+    font-family: 'Rowdies', cursive;
+    font-size:  24px;
+    border-bottom:  4px solid black ;
+}
+.pic{
+    width: 90%;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: black solid;
+}
+.pic1{
+    width: 100%;
+    height: 240px;
+}
+.actions{
+    display: flex;
+    gap: 18px;
+    flex-direction: row;
+    width: 65%;
+
+}
+.copyrightText
+{
+    padding: 8px 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.copyrightText p
+{
+    color: #333;
+}
+
+.copyrightText a
+{
+    color: #ff114d;
+    font-weight: 500;
+    text-decoration: none;
+}

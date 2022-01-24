@@ -18,7 +18,7 @@
                 <li><a href="#testimonials" onclick="toggleMenu()">Testimonials</a></li>
                 <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
                 <li id="listbreak">|</li>
-                <li><a href="manage.php" onclick="toggleMenu()">Manage Products</a></li>
+                <li><a href="login.php" onclick="toggleMenu()">Manage Products</a></li>
             </ul>
         </header>
             <section class="banner" id="banner">

@@ -1,0 +1,12 @@
+CREATE DATABASE Shopnow;
+CREATE TABLE Shopnow.Categorie(idCat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,Nomcat TEXT NOT NULL);
+CREATE TABLE Shopnow.Product(idP INT PRIMARY KEY NOT NULL AUTO_INCREMENT,Nom TEXT NOT NULL UNIQUE,Price FLOAT,Image TEXT,Quantite INT,idCat INT,FOREIGN KEY(idCat) REFERENCES Categorie(idCat));
+INSERT INTO Shopnow.Categorie(Nomcat) VALUES
+('Tablets & Laptops'),
+('TVs & Smart TVs'),
+('Gaming PCs'),
+('Car Gadgets'),
+('Drones'),
+('Phone Accessories');
+CREATE TABLE shopnow.admin(idA INT PRIMARY KEY NOT NULL AUTO_INCREMENT,email TEXT NOT NULL,username TEXT NOT NULL, pass TEXT NOT NULL);
+INSERT INTO shopnow.admin(email,username,pass) VALUES ('admin.admin@gmail.com','admin','admin');

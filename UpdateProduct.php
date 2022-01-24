@@ -16,7 +16,7 @@
                         <img src="./images/icons8-close-30.png" alt="" srcset="">
                     </button>
                 </div>
-                <form action="Crud.php" method="post" id="updateform">
+                <form action="Crud.php" method="post" id="updateform" enctype="multipart/form-data">
 
                 <div class="popup-body">
                    <!--  -->
@@ -44,15 +44,15 @@
                     </div>
                     <div class="block">
                         <label>Quantite:</label>
-                        <input type="number" name="quantite" id="quantiteup">
+                        <input type="number" name="quantite" id="quantiteup" class="input">
                     </div>
                     <div class="block">
                      <img id="uploadup" width="100" height="100">
-                        <input type="file" name="image" id="imgup" class="input" accept="image/*">
+                        <input type="file" name="imageup" id="imgup" class="input" accept="image/*">
                     </div>
                 </div>
                 <div class="popup-footer">
-                    <button type="submit" class="btnEdit">Update Product</button>
+                    <button type="submit" name="submit" class="btnEdit">Update Product</button>
                 </div>
                 </form>
             </div>
