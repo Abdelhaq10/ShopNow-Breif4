@@ -1,5 +1,10 @@
 <?php
 include("./connection.php");
+
+$droneCondition ="SELECT COUNT(*) from product where idCat=5";
+$conDrone=mysqli_query($connection,$droneCondition);
+$arrConDrone=mysqli_fetch_array($conDrone);
+
 $catDro="SELECT NomCat FROM categorie where idCat=5";
 $caDro=mysqli_query($connection,$catDro);
 $Dronecat=mysqli_fetch_array($caDro);
@@ -15,7 +20,7 @@ $Drones[] = $rowDro;
 
 ?>
 
-
+<?php if($arrConDrone[0]>0): ?>
 
 <div class="categoryName"><?php echo $Dronecat[0] ?></div>
       <div class="slider">
@@ -40,6 +45,7 @@ $Drones[] = $rowDro;
         </div>
         <?php endforeach; ?>
       </div>
+      <?php endif; ?>
       <script>
         const Drones = JSON.parse('<?php echo json_encode($Drones); ?>');
         console.log(Drones);

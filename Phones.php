@@ -1,5 +1,10 @@
 <?php
 include("./connection.php");
+
+$phoneCondition ="SELECT COUNT(*) from product where idCat=6";
+$conPhone=mysqli_query($connection,$condition);
+$arrConPhone=mysqli_fetch_array($conPhone);
+
 $catPhone="SELECT NomCat FROM categorie where idCat=6";
 $caPhone=mysqli_query($connection,$catPhone);
 $phonecat=mysqli_fetch_array($caPhone);
@@ -16,7 +21,7 @@ $phones[] = $rowP;
 ?>
 
 
-
+<?php if($arrConPhone[0]>0): ?>
 <div class="categoryName"><?php echo $phonecat[0] ?></div>
       <div class="slider">
       <?php foreach ($phones as $phone) : ?>
@@ -40,6 +45,7 @@ $phones[] = $rowP;
         </div>
         <?php endforeach; ?>
       </div>
+      <?php endif; ?>
       <script>
         const Phones = JSON.parse('<?php echo json_encode($phones); ?>');
         console.log(Phones);

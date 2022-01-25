@@ -1,5 +1,10 @@
 <?php
 include("./connection.php");
+
+$condition ="SELECT COUNT(*) from product where idCat=2";
+$conTv=mysqli_query($connection,$condition);
+$arrCondition=mysqli_fetch_array($conTv);
+
 $catTv="SELECT NomCat FROM categorie where idCat=2";
 $caTv=mysqli_query($connection,$catTv);
 $tvcat=mysqli_fetch_array($caTv);
@@ -9,17 +14,17 @@ $dataTv="SELECT p.*,c.Nomcat FROM product AS p INNER JOIN categorie AS c ON p.id
    $tvs = array();
 while($rowTv =mysqli_fetch_assoc($arrTv))
 {
-$tv[] = $rowTv;
+$tvs[] = $rowTv;
 }
 // print_r($tablet);
 
 ?>
 
-
+<?php if($arrCondition[0]>0): ?>
 
 <div class="categoryName"><?php echo $tvcat[0] ?></div>
       <div class="slider">
-      <?php foreach ($tv as $t) : ?>
+      <?php foreach ($tvs as $t) : ?>
         <div class="cardBox">
           <div class="imgBox"><img src="./images/<?php echo $t['image'] ?>"></div>
           <div class="priceTag"><?php echo $t['Price'] ?>DH</div>
@@ -40,6 +45,7 @@ $tv[] = $rowTv;
         </div>
         <?php endforeach; ?>
       </div>
+      <?php endif; ?>
       <script>
         const Tvs = JSON.parse('<?php echo json_encode($tv); ?>');
         console.log(Tvs);

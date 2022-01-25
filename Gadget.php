@@ -1,5 +1,10 @@
 <?php
 include("./connection.php");
+
+$gadgetCondition ="SELECT COUNT(*) from product where idCat=4";
+$conGadget=mysqli_query($connection,$gadgetCondition);
+$arrConGadget=mysqli_fetch_array($conGadget);
+
 $catGad="SELECT NomCat FROM categorie where idCat=4";
 $catGadget=mysqli_query($connection,$catGad);
 $GadgetCat=mysqli_fetch_array($catGadget);
@@ -16,7 +21,7 @@ $Gadgets[] = $rowGad;
 ?>
 
 
-
+<?php if($arrConGadget[0]>0): ?>
 <div class="categoryName"><?php echo $GadgetCat[0] ?></div>
       <div class="slider">
       <?php foreach ($Gadgets as $gadget) : ?>
@@ -40,6 +45,7 @@ $Gadgets[] = $rowGad;
         </div>
         <?php endforeach; ?>
       </div>
+      <?php endif; ?>
       <script>
         const Gadgets = JSON.parse('<?php echo json_encode($Gadgets); ?>');
         console.log(Gadgets);

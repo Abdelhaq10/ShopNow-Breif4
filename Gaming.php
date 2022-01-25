@@ -1,5 +1,10 @@
 <?php
 include("./connection.php");
+
+$GameCondition ="SELECT COUNT(*) from product where idCat=3";
+$conGame=mysqli_query($connection,$GameCondition);
+$arrConGame=mysqli_fetch_array($conGame);
+
 $catGame="SELECT NomCat FROM categorie where idCat=3";
 $catGaming=mysqli_query($connection,$catGame);
 $gamingCat=mysqli_fetch_array($catGaming);
@@ -15,7 +20,7 @@ $pcs[] = $rowPc;
 
 ?>
 
-
+<?php if($arrConGame[0]>0): ?>
 
 <div class="categoryName"><?php echo $gamingCat[0] ?></div>
       <div class="slider">
@@ -40,6 +45,7 @@ $pcs[] = $rowPc;
         </div>
         <?php endforeach; ?>
       </div>
+      <?php endif; ?>
       <script>
         const Pcs = JSON.parse('<?php echo json_encode($pcs); ?>');
         console.log(Pcs);

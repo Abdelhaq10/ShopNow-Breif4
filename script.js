@@ -32,22 +32,6 @@ Addbtn.addEventListener("click",function(){
     Addpopup.style.display="block";
 });
 
-
-    // function openPopUp(product)
-    // {
-    //     const {idP, Nom, Price, image, Quantite, idCat, Nomcat} = product;
-    //     idInput.value=idP;
-    //     titleInput.value=Nom;
-    //     priceInput.value=Price;
-    //     quantiteInput.value=Quantite;
-    //     catInput.querySelectorAll("option").forEach(op => {
-    //         if(op.value === idCat){
-    //           op.selected  = true;
-    //         }
-    //       })
-     
-    //     Updatepopup.style.display="block";
-    // }
     function openPopUpTablet(tablet)
     {
         const {idP, Nom, Price, image, Quantite, idCat, Nomcat} = tablet;

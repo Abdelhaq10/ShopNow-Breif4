@@ -1,5 +1,10 @@
 <?php
 include("./connection.php");
+
+$tabletCondition ="SELECT COUNT(*) from product where idCat=1";
+$conTab=mysqli_query($connection,$tabletCondition);
+$arrConTablet=mysqli_fetch_array($conTab);
+
 $catTab="SELECT NomCat FROM categorie where idCat=1";
 $caTab=mysqli_query($connection,$catTab);
 $tabletcat=mysqli_fetch_array($caTab);
@@ -16,7 +21,7 @@ $tablet[] = $rowTab;
 ?>
 
 
-
+<?php if($arrConTablet[0]>0): ?>
 <div class="categoryName"><?php echo $tabletcat[0] ?></div>
       <div class="slider">
       <?php foreach ($tablet as $tab) : ?>
@@ -40,7 +45,7 @@ $tablet[] = $rowTab;
         </div>
         <?php endforeach; ?>
       </div>
-      
+      <?php endif ?>
       <script>
         const Tablets = JSON.parse('<?php echo json_encode($tablet); ?>');
         console.log(Tablets);
@@ -52,7 +57,6 @@ $tablet[] = $rowTab;
           {
             const id = btn.value;
             const tablet = Tablets.find(t => t.idP === id);
-            // console.log(product);
             openPopUpTablet(tablet);
           })
         });
