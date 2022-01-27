@@ -14,15 +14,6 @@
         include("./connection.php");
        
         session_start();
-   
-        $user = $_SESSION['admin'];
-        
-        $queryses = mysqli_query($connection,"select username from admin where username = '$user' ");
-        
-        $rows = mysqli_fetch_assoc($queryses);
-        
-        $session = $rows['username'];
-      
         if(!isset($_SESSION['admin'])){
            header("location:login.php");
            die();
@@ -35,7 +26,7 @@
       <a href="#" class="logo">Shop<span>Now</span></a>
       <div class="menuToggle" onclick="toggleMenu()"></div>
       <ul class="navigation">
-        <li><a href="index.html#banner" onclick="toggleMenu()">Home</a></li>
+        <li><a href="index.php#banner" onclick="toggleMenu()">Home</a></li>
         <li id="listbreak">|</li>
         <li><a href="./logout.php" onclick="toggleMenu()">LOG OUT</a></li>
       </ul>

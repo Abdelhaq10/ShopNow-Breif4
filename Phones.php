@@ -2,9 +2,8 @@
 include("./connection.php");
 
 $phoneCondition ="SELECT COUNT(*) from product where idCat=6";
-$conPhone=mysqli_query($connection,$condition);
+$conPhone=mysqli_query($connection,$phoneCondition);
 $arrConPhone=mysqli_fetch_array($conPhone);
-
 $catPhone="SELECT NomCat FROM categorie where idCat=6";
 $caPhone=mysqli_query($connection,$catPhone);
 $phonecat=mysqli_fetch_array($caPhone);

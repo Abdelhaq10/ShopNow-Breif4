@@ -16,7 +16,6 @@ while($rowTab =mysqli_fetch_assoc($arrTab))
 {
 $tablet[] = $rowTab;
 }
-// print_r($tablet);
 
 ?>
 
@@ -47,6 +46,7 @@ $tablet[] = $rowTab;
       </div>
       <?php endif ?>
       <script>
+        
         const Tablets = JSON.parse('<?php echo json_encode($tablet); ?>');
         console.log(Tablets);
         const editBtns = document.querySelectorAll(".update");
