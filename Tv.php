@@ -36,7 +36,7 @@ $tvs[] = $rowTv;
             <button id="updatebtn"  name="edit" class="btn update" value=<?php echo $t['idP']; ?>><img src="images/updated.png"></button>
 
               <form action="Crud.php" method="post">
-                <input type="text" class="id" name="id"  value="<?php echo $t['idP'] ?>" id="id">
+                <input type="text" class="id" name="id"  value=<?php echo $t['idP'] ;?> id="id">
                 
                 <button id="deletebtn" name="del" class="btn"><img src="images/delete.png"></button>
               </form> 
@@ -47,7 +47,7 @@ $tvs[] = $rowTv;
       </div>
       <?php endif; ?>
       <script>
-        const Tvs = JSON.parse('<?php echo json_encode($tv); ?>');
+        const Tvs = JSON.parse('<?php echo json_encode($tvs); ?>');
         console.log(Tvs);
         const editBtnstv = document.querySelectorAll(".update");
         

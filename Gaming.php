@@ -58,7 +58,7 @@ $pcs[] = $rowPc;
             const id = btn.value;
             const pc = Pcs.find(p => p.idP === id);
             // console.log(product);
-            openPopUpTv(pc);
+            openPopUpPc(pc);
           })
         });
     </script>

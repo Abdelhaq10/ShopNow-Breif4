@@ -549,4 +549,7 @@ label
     .cards .add{
     justify-content: center;
     }
+    .input{
+        width: 60%;
+    }
 }

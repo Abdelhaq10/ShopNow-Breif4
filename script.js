@@ -136,7 +136,7 @@ closeUpdate.addEventListener("click",function(){
 });
 
 document.querySelector('body').addEventListener('click', function(e){
-    if(e.target.classList.contains("content")){
+    if(e.target.classList.contains("box")){
         Addpopup.style.display = "none";
         Updatepopup.style.display = "none";
     }

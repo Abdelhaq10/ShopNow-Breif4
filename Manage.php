@@ -1,3 +1,7 @@
+<?php
+ require_once("./connection.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,6 @@
 
 <body>
     <?php
-        include("./connection.php");
        
         session_start();
         if(!isset($_SESSION['admin'])){
@@ -35,6 +38,7 @@
   <section class="cards" id="cards">
       <div class="dimlight"></div>
       <h2>List Of Products</h2>
+     
         <div class="add">
             <button id="addbtn" class="addbtn">Add Product</button>
         </div>

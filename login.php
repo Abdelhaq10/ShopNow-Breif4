@@ -1,3 +1,7 @@
+ <?php
+         require_once("./connection.php");
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +12,7 @@
     <link rel="stylesheet" href="./login.css">
 </head>
 <body>
-    <?php
-         include("./connection.php");
-    ?>
+   
 
 <div id="login" class="box">
 
@@ -36,7 +38,7 @@
                              $result = mysqli_query($connection,$query);
                              $row = mysqli_fetch_array($result);
                              
-                             $count = mysqli_num_rows($result);     
+                             $count = mysqli_num_rows($result);  
                              if($count == 1) {
                                
                                 $_SESSION['admin'] = $username;

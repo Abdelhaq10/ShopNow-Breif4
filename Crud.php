@@ -4,9 +4,10 @@
       if(isset($_POST['add'])){
         
         $image=$_FILES['image']['name'];
+        var_dump($image);
         $dest="images/" .($image);
         $cat=$_POST['cat'];
-        $intitule = $_POST['int xwitule'];
+        $intitule = $_POST['intitule'];
         $price =$_POST['price'];
         $qte=$_POST['quantite'];
         $sqlid="SELECT MAX(idP) FROM product";
@@ -25,7 +26,7 @@
    }
 
 
-   if(isset($_POST['submit']) && $_SERVER['REQUEST_METHOD']=='POST')
+   if(isset($_POST['submit']))
    {
                 $idp=$_POST['id'];
                 $image=$_FILES['imageup']['name'];

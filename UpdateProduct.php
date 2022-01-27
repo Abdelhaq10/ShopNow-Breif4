@@ -24,7 +24,7 @@
                     <div class="messageBox"></div>
                      <div class="block">
                         <label>Product Id:</label>
-                        <input type="text" name="id" id="idup" class="input">
+                        <input type="text" name="id" id="idup" class="input" readonly>
                     </div>
                     <div class="block">
                     <label for="catup">Categorie:</label>
