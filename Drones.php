@@ -34,7 +34,7 @@ $Drones[] = $rowDro;
     
             <div class="actions">
             <button id="updatebtn"  name="edit" class="btn update" value=<?php echo $drone['idP']; ?>><img src="images/updated.png"></button>
-      
+              
               <form action="Crud.php" method="post">
                 <input type="text" class="id" name="id"  value="<?php echo $drone['idP'] ?>" id="id">
                 

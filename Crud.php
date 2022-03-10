@@ -1,10 +1,10 @@
 <?php
-
+session_start();
      require_once("./connection.php");
       if(isset($_POST['add'])){
         
         $image=$_FILES['image']['name'];
-        var_dump($image);
+        // var_dump($image);
         $dest="images/" .($image);
         $cat=$_POST['cat'];
         $intitule = $_POST['intitule'];
@@ -20,7 +20,8 @@
                   VALUES ('$idp','$intitule','$price','$image','$qte','$cat')";
               if(mysqli_query($connection,$add))
               {
-                header('location:Manage.php?Added');
+                $_SESSION['added'] = "Product Added Successfuly";
+                header('location:Manage.php');
               }
             }
    }
@@ -35,13 +36,16 @@
                 $intitule = $_POST['intitule'];
                 $price =$_POST['price'];
                 $qte=$_POST['quantite'];
+                
           if(move_uploaded_file($_FILES['imageup']['tmp_name'], $dest)) { 
            $edit="UPDATE `product` SET `Nom`='$intitule',`Price`='$price',`image`='$image',`Quantite`='$qte',`idCat`='$cat' WHERE `idP`= $idp";
              if(mysqli_query($connection,$edit)){
-               header('location:Manage.php?updated');
+                  $_SESSION['update'] = "Product updated Successfuly";
+               header('location:Manage.php');
+            
              }
              else {
-               echo "error";
+               header('location:Manage.php');
              }
             
          }
@@ -56,7 +60,8 @@
         $infoQuery=mysqli_query($connection,$query);
         if($infoQuery)
         {
-            header('location:Manage.php?deleted');
+              $_SESSION['delete'] = "Product deleted Successfuly";
+            header('location:Manage.php');
         }
       }
 

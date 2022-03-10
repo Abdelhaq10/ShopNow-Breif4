@@ -265,6 +265,10 @@ header.sticky #listbreak
     cursor: pointer;
     transition: 0.3s; 
 }
+.btnEdit, .btnAdd{
+        color: #e9ecef;
+        background-color: crimson;
+}
 
 #addbtn:active, .btn:active, .btnEdit:active, .btnAdd:active
 {
@@ -464,7 +468,7 @@ label
 
 
 
-@media (max-width: 991px)
+@media (max-width:1031px)
 {
     header, header.sticky
     {
@@ -541,7 +545,7 @@ label
 
 }
 
-@media (max-width: 480px)
+@media (max-width: 665px)
 {
     .cards .slider{
         grid-template-columns: repeat(1,1fr);
@@ -549,7 +553,16 @@ label
     .cards .add{
     justify-content: center;
     }
-    .input{
-        width: 60%;
+  
+    .popup-content{
+        width: 90%;
     }
+}
+
+
+#price::-webkit-outer-spin-button,
+#price::-webkit-inner-spin-button 
+{
+  -webkit-appearance: none;
+  margin: 0;
 }

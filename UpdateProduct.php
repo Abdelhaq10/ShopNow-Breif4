@@ -36,19 +36,19 @@
                     </div>
                   <div class="block">
                         <label>Intitule:</label>
-                        <input type="text" name="intitule" id="intituleup" class="input">
+                        <input type="text" name="intitule" id="intituleup" class="input" required>
                     </div>
                     <div class="block">
                         <label>Price:</label>
-                        <input type="text" name="price" id="priceup" class="input">
+                        <input type="text" name="price" min="0.00" id="priceup" class="input" required>
                     </div>
                     <div class="block">
                         <label>Quantite:</label>
-                        <input type="number" name="quantite" id="quantiteup" class="input">
+                        <input type="number" name="quantite" min="1" id="quantiteup" class="input" required>
                     </div>
                     <div class="block">
                      <img id="uploadup" width="100" height="100">
-                        <input type="file" name="imageup" id="imgup" class="input" accept="image/*">
+                        <input type="file" name="imageup" id="imgup" class="input" accept="image/*" required>
                     </div>
                 </div>
                 <div class="popup-footer">
@@ -58,3 +58,4 @@
             </div>
         </div>
     </div>
+   

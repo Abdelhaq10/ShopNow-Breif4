@@ -31,21 +31,21 @@
                     </div>
                     <div class="block">
                         <label for="intitule">Intitule:</label>
-                        <input type="text" name="intitule" id="intitule" class="input" placeholder="Enter Product Intitule">
+                        <input type="text" name="intitule" id="intitule" class="input" placeholder="Enter Product Intitule" required>
                     </div>
                      <div class="block">
                      <img id="upload" width="100" height="100">
-                        <input type="file" name="image" id="file"  accept="image/*">
+                        <input type="file" name="image" id="file"  accept="image/*" required>
                   
                     </div>
                     <div class="block">
                         <label for="quantite">Quantite:</label>
-                        <input type="number" name="quantite" id="quantite" class="input" placeholder="Quantite">
+                        <input type="number" name="quantite" id="quantite" min="1" class="input" placeholder="Quantite" required>
                     </div>
 
                     <div class="block">
                         <label for="price">Price:</label>
-                        <input type="text" name="price" id="price" class="input" placeholder="Enter your Price">
+                        <input type="number" min="0.00" name="price" id="price" class="input" placeholder="Enter your Price" style="" required>
                     </div>
                 </div>
                 <div class="popup-footer">
